@@ -35,10 +35,10 @@ def produit(request):
 			if form.is_valid():
 				form.save()
 				messages.success(request , 'Produit Ajoute avec succe')
-				return redirect('home')
+				return redirect('list_produit')
 		except Exception as e:
-			messages.error(request , 'Produit n\'a pas été ajoute')
-			return redirect('home')
+			messages.error(request , f'Produit n\'a pas été ajoute {e}')
+			return redirect('list_produit')
 
 	args = {
 		'form':form,
