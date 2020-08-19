@@ -27,7 +27,7 @@
 	{% endfor %}
 	<div class="panel panel-white col-md-9">
 		
-	    <form method="post">{% csrf_token %}
+	    <form method="post" enctype="multipart/form-data" >{% csrf_token %}
 			<div class="row">
 				<div class="form-group col-md-4 ">
 					<label class="">Nom du Produit</label>
