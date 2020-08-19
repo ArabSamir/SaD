@@ -1,0 +1,100 @@
+{% extends "base/base.html" %}
+{% block title %}
+    {% if request.resolver_match.url_name == "produit" %}
+		Ajouter Produit
+	{% else %}
+		Modifier Produit
+	{% endif %}
+{% endblock title %}
+	
+	{% block page_title %}
+
+		 {% if request.resolver_match.url_name == "produit" %}
+		Ajouter Produit
+	{% else %}
+		Modifier Produit
+	{% endif %}
+	{% endblock page_title %}
+{% block body %}
+
+	{% for message in messages %}
+		{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
+			<div class="alert alert-success" role="alert">{{message}}</div>
+		{% else %}
+			<div class="alert alert-danger" role="alert">{{message}}</div>
+		    
+		{% endif %}
+	{% endfor %}
+	<div class="panel panel-white col-md-9">
+		
+	    <form method="post">{% csrf_token %}
+			<div class="row">
+				<div class="form-group col-md-4 ">
+					<label class="">Nom du Produit</label>
+					{{form.nom}}	
+					
+					{% if form.errors.nom %}
+					    <label class="error">{{form.errors.nom}}</label>				
+					{% endif %}
+				</div>
+				
+				<div class="form-group col-md-4">
+					<label class="">Marque</label>
+					{{form.marque}}
+					{% if form.errors.marque %}
+					    <label class="error">{{form.errors.marque}}</label>	
+					{% endif %}	
+				</div>
+				<div class="form-group col-md-4">
+					<label class="">Option</label>
+					{{form.option}}
+					{% if form.errors.option %}
+					    <label class="error">{{form.errors.option}}</label>	
+					{% endif %}	
+				</div>
+			</div>
+
+			<div class="row">
+			
+				
+				<div class="form-group col-md-7">
+					<label class="">Categorie</label>
+					{{form.categorie}}
+					{% if form.errors.categorie %}
+					    <label class="error">{{form.errors.categorie}}</label>	
+					{% endif %}
+				</div>
+				
+				<div class="form-group col-md-5">
+					<label class="">Quantite</label>
+					{{form.qte_stocke}}
+					{% if form.errors.qte_stocke %}
+					    <label class="error">{{form.errors.qte_stocke}}</label>	
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label class="">Image</label>
+					{{form.image}}
+					{% if form.errors.image %}
+					    <label class="error">{{form.errors.image}}</label>	
+					{% endif %}	
+				</div>
+				
+				
+				
+			</div>
+			<hr>
+			 {% if request.resolver_match.url_name == "produit" %}
+				<button type="submit" class="btn btn-primary"><b>AJOUTER</b></button>
+	{% else %}
+				<button type="submit" class="btn btn-primary"><b>Modifier</b></button>
+	{% endif %}
+				    
+			
+		</form>
+	</div>
+{% endblock body %}
+

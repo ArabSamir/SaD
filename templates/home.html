@@ -1,0 +1,63 @@
+{% extends "base/base.html" %}
+
+{% block body %}
+    <div id="main-wrapper">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-white stats-widget">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <span class="stats-number">{{nb_achat}}</span>
+                                            <p class="stats-info">Achat du Mois</p>
+                                        </div><!-- 
+                                        <div class="pull-right">
+                                            <i class="icon-arrow_upward stats-icon"></i>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-white stats-widget">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <span class="stats-number">{{montant_de_achat}} DA</span>
+                                            <p class="stats-info">Montant d'Achat</p>
+                                        </div><!-- 
+                                        <div class="pull-right">
+                                            <i class="icon-arrow_downward stats-icon"></i>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-white stats-widget">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <span class="stats-number">{{nb_vente}}</span>
+                                            <p class="stats-info">Vente du Mois</p>
+                                        </div><!-- 
+                                        <div class="pull-right">
+                                            <i class="icon-arrow_upward stats-icon"></i>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-white stats-widget">
+                                    <div class="panel-body">
+                                        <div class="pull-left">
+                                            <span class="stats-number">{{montant_de_vente}} DA</span>
+                                            <p class="stats-info">Montant de Vente</p>
+                                        </div><!-- 
+                                        <div class="pull-right">
+                                            <i class="icon-arrow_upward stats-icon"></i>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- Row -->
+                    </div>
+                    {% for var1 in test %}
+                    		{{var1.dcount}}
+                    {% endfor %}
+{% endblock body %}

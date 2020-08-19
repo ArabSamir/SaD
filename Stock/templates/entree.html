@@ -1,0 +1,68 @@
+{% extends "base/base.html" %}
+{% block title %}
+   Ajouter Entree
+{% endblock title %}
+	
+	{% block page_title %}
+Ajouter Entree
+		
+	{% endblock page_title %}
+{% block body %}
+
+	{% for message in messages %}
+		{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
+			<div class="alert alert-success" role="alert">{{message}}</div>
+		{% else %}
+			<div class="alert alert-danger" role="alert">{{message}}</div>
+		    
+		{% endif %}
+	{% endfor %}
+	<div class="panel panel-white col-md-9">
+		
+	    <form method="post">{% csrf_token %}
+			<div class="row">
+				<div class="form-group col-md-6 ">
+					<label class="">Date entree</label>
+					{{form.date_entree}}	
+					
+					{% if form.errors.date_entree %}
+					    <label class="error">{{form.errors.date_entree}}</label>				
+					{% endif %}
+				</div>
+				
+				<div class="form-group col-md-6">
+					<label class="">Quantite</label>
+					{{form.qte}}
+					{% if form.errors.qte %}
+					    <label class="error">{{form.errors.qte}}</label>	
+					{% endif %}
+				</div>
+				
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label class="">Prix Unitaire</label>
+					{{form.prix_u}}
+					{% if form.errors.prix_u %}
+					    <label class="error">{{form.errors.prix_u}}</label>	
+					{% endif %}	
+				</div>
+				
+				<div class="form-group col-md-8">
+					<label class="">Produit</label>
+					{{form.produit}}
+					{% if form.errors.produit %}
+					    <label class="error">{{form.errors.produit}}</label>	
+					{% endif %}
+				</div>
+				
+			</div>
+			<hr>
+				<button type="submit" class="btn btn-primary"><b>AJOUTER</b></button>
+				    
+			
+		</form>
+	</div>
+{% endblock body %}
+
