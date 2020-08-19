@@ -1,0 +1,4 @@
+*.sqlite3
+*SD\settings.py
+*__pycache__
+*media
