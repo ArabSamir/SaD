@@ -1,1 +1,0 @@
-from SD.wsgi import application

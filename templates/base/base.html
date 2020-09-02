@@ -62,22 +62,34 @@
                           
                             <li>
                                 <a href="#">
-                                    <i class="menu-icon icon-flash_on"></i><span>Entrees</span><i class="accordion-icon fa fa-angle-left"></i>
+                                    <i class="menu-icon icon-flash_on"></i><span>Achat</span><i class="accordion-icon fa fa-angle-left"></i>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="{% url 'list_entree' %}">Tous les entrees</a></li>
-                                    <li><a href="{% url 'entree' %}">Ajouter entrees</a></li>
+                                    <li><a href="{% url 'list_achat' %}">Tous les achats</a></li>
+                                    <li><a href="{% url 'achat' %}">Ajouter achats</a></li>
 
                                    
                                 </ul>
                             </li> 
                             <li>
                                 <a href="#">
-                                    <i class="menu-icon icon-flash_on"></i><span>Sorties</span><i class="accordion-icon fa fa-angle-left"></i>
+                                    <i class="menu-icon icon-flash_on"></i><span>Ventes</span><i class="accordion-icon fa fa-angle-left"></i>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="{% url 'list_sortie' %}">Tous les sorties</a></li>
-                                    <li><a href="{% url 'sortie' %}">Ajouter sorties</a></li>
+                                    <li><a href="{% url 'list_vente' %}">Tous les ventes</a></li>
+                                    <li><a href="{% url 'vente' %}">Ajouter ventes</a></li>
+
+                                   
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="menu-icon icon-flash_on"></i><span>Caisse</span><i class="accordion-icon fa fa-angle-left"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'entree_sortie' %}">Tous les Entrees/Sorties</a></li>
+                                    <li><a href="{% url 'entree' %}">Ajouter Entree</a></li>
+                                    <li><a href="{% url 'sortie' %}">Ajouter Sortie</a></li>
 
                                    
                                 </ul>

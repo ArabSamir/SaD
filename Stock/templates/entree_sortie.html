@@ -1,0 +1,81 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+    Tous les achats
+{% endblock title %}
+    
+    {% block page_title %}
+
+         Tous les achats
+    {% endblock page_title %}
+
+{% block body %}
+    
+{% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
+            <div class="alert alert-success" role="alert">{{message}}</div>
+        {% else %}
+            <div class="alert alert-danger" role="alert">{{message}}</div>
+            
+        {% endif %}
+    {% endfor %}
+ <a href="{% url 'achat' %}" class="col-md-12 btn btn-success" style="margin-bottom: 20px; margin-top: 20px"><strong>Ajouter Achat</strong></a>
+   
+ 
+    <div id="main-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-white">
+                    <div class="panel-heading clearfix">
+                        <h4 class="panel-title">Tous les achats</h4>
+                    </div>
+                    <div class="panel-body">
+                       <div class="table-responsive">
+                        <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
+                            <thead>
+                                <tr>
+                                    <th>TYPE</th>
+                                    <th>DESIGNATION</th>
+                                    <th>DATE</th>
+                                    <th>PRIX UNITAIRE</th>
+                                </tr>
+                            </thead>
+                           <!--  <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>PRENOM</th>
+                                    <th>DATE NAISSANCE</th>
+                                    <th>N° SS</th>
+                                    <th>MODIFIER</th>
+                                </tr>
+                            </tfoot> -->
+                            <tbody>
+                            {% for achat in achats %}
+                                <tr>
+                                    <td><a href="#">Sortie</a></td>
+                                    <td><a href="#">{{achat.fraisdivers}}</a></td>
+                                    <td><a href="#">{{achat.date_achat}}</a></td>
+                                    <td><a href="#">{{achat.prix_u}}</a></td>
+                                </tr>
+                            {% endfor %}
+                                
+                            {% for vente in ventes %}
+                                <tr>
+                                    <td><a href="#">Entree</a></td>
+                                    <td><a href="#">{{vente.fraisdivers}}</a></td>
+                                    <td><a href="#">{{vente.date_vente}}</a></td>
+                                    <td><a href="#">{{vente.prix_u}}</a></td>
+                                </tr>
+                            {% endfor %}
+                                
+                            </tbody>
+                           </table>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+{% endblock body %}

@@ -22,38 +22,30 @@ Ajouter Entree
 	    <form method="post">{% csrf_token %}
 			<div class="row">
 				<div class="form-group col-md-6 ">
-					<label class="">Date entree</label>
-					{{form.date_entree}}	
+					<label class="">Date Entree</label>
+					{{form.date_vente}}	
 					
-					{% if form.errors.date_entree %}
-					    <label class="error">{{form.errors.date_entree}}</label>				
+					{% if form.errors.date_vente %}
+					    <label class="error">{{form.errors.date_vente}}</label>				
 					{% endif %}
 				</div>
-				
 				<div class="form-group col-md-6">
-					<label class="">Quantite</label>
-					{{form.qte}}
-					{% if form.errors.qte %}
-					    <label class="error">{{form.errors.qte}}</label>	
-					{% endif %}
-				</div>
-				
-			</div>
-
-			<div class="row">
-				<div class="form-group col-md-4">
-					<label class="">Prix Unitaire</label>
+					<label class="">Prix </label>
 					{{form.prix_u}}
 					{% if form.errors.prix_u %}
 					    <label class="error">{{form.errors.prix_u}}</label>	
 					{% endif %}	
 				</div>
+			</div>
+
+			<div class="row">
 				
-				<div class="form-group col-md-8">
-					<label class="">Produit</label>
-					{{form.produit}}
-					{% if form.errors.produit %}
-					    <label class="error">{{form.errors.produit}}</label>	
+				
+				<div class="form-group col-md-12">
+					<label class="">Type Entree</label>
+					{{form.fraisdivers}}
+					{% if form.errors.fraisdivers %}
+					    <label class="error">{{form.errors.fraisdivers}}</label>	
 					{% endif %}
 				</div>
 				

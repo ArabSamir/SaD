@@ -1,10 +1,10 @@
 {% extends "base/base.html" %}
 {% block title %}
-   Ajouter Sortie
+   Ajouter vente
 {% endblock title %}
 	
 	{% block page_title %}
-Ajouter Sortie
+ Ajouter vente
 		
 	{% endblock page_title %}
 {% block body %}
@@ -22,30 +22,38 @@ Ajouter Sortie
 	    <form method="post">{% csrf_token %}
 			<div class="row">
 				<div class="form-group col-md-6 ">
-					<label class="">Date Sortie</label>
-					{{form.date_achat}}	
+					<label class="">Date vente</label>
+					{{form.date_vente}}	
 					
-					{% if form.errors.date_achat %}
-					    <label class="error">{{form.errors.date_achat}}</label>				
+					{% if form.errors.date_vente %}
+					    <label class="error">{{form.errors.date_vente}}</label>				
 					{% endif %}
 				</div>
+				
 				<div class="form-group col-md-6">
-					<label class="">Prix </label>
+					<label class="">Quantite</label>
+					{{form.qte}}
+					{% if form.errors.qte %}
+					    <label class="error">{{form.errors.qte}}</label>	
+					{% endif %}
+				</div>
+				
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label class="">Prix Unitaire</label>
 					{{form.prix_u}}
 					{% if form.errors.prix_u %}
 					    <label class="error">{{form.errors.prix_u}}</label>	
 					{% endif %}	
 				</div>
-			</div>
-
-			<div class="row">
 				
-				
-				<div class="form-group col-md-12">
-					<label class="">Type Sortie</label>
-					{{form.fraisdivers}}
-					{% if form.errors.fraisdivers %}
-					    <label class="error">{{form.errors.fraisdivers}}</label>	
+				<div class="form-group col-md-8">
+					<label class="">Produit</label>
+					{{form.produit}}
+					{% if form.errors.produit %}
+					    <label class="error">{{form.errors.produit}}</label>	
 					{% endif %}
 				</div>
 				

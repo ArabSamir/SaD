@@ -3,5 +3,6 @@ from .models import *
 # Register your models here.
 admin.site.register(Categorie)
 admin.site.register(Produit)
-admin.site.register(Entree)
-admin.site.register(Sortie)
+admin.site.register(Achat)
+admin.site.register(Vente)
+admin.site.register(FraisDivers)

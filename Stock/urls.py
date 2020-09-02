@@ -10,12 +10,16 @@ urlpatterns = [
     re_path(r'produit/(?P<pk>[\w-]+)/modifier', modifier_produit  , name='modifier_produit'),
   
     
-    path('entree/', entree  , name='entree'),
-    path('list-entree/', list_entree  , name='list_entree'),
+    path('achat/', achat  , name='achat'),
+    path('list-achat/', list_achat  , name='list_achat'),
     
-    path('sortie/', sortie  , name='sortie'),
-    path('list-sortie/', list_sortie  , name='list_sortie'),
+    
+    path('vente/', vente  , name='vente'),
+    path('list-vente/', list_vente  , name='list_vente'),
 
+    path('entree/', entree  , name='entree'),
+    path('sortie/', sortie  , name='sortie'),
+    path('entree-sortie/', entree_sortie  , name='entree_sortie'),
 
 
 ]

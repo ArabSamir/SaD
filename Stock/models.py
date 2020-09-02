@@ -10,6 +10,13 @@ class Categorie(models.Model):
 		return self.libelle
 
 
+class FraisDivers(models.Model):
+	libelle = models.CharField(max_length = 50)
+
+	def __str__(self):
+		return self.libelle
+
+
 class Produit(models.Model):
 	nom = models.CharField(max_length = 50)
 	marque = models.CharField(max_length = 50)
@@ -21,15 +28,17 @@ class Produit(models.Model):
 	def __str__(self):
 		return self.nom
 		
-class Entree(models.Model):
-	date_entree = models.DateField() 
-	qte = models.IntegerField()
-	prix_u = models.IntegerField()
-	produit = models.ForeignKey(Produit , on_delete=models.CASCADE)
+class Achat(models.Model):
+	date_achat = models.DateField() 
+	qte = models.IntegerField( null=True ,blank=True)
+	prix_u = models.FloatField()
+	produit = models.ForeignKey(Produit , on_delete=models.CASCADE, null=True ,blank=True)
+	fraisdivers = models.ForeignKey(FraisDivers , on_delete=models.CASCADE, null=True ,blank=True)
 			
-class Sortie(models.Model):
-	date_sortie = models.DateField() 
-	qte = models.IntegerField()
-	prix_u = models.IntegerField()
-	produit = models.ForeignKey(Produit , on_delete=models.CASCADE)
+class Vente(models.Model):
+	date_vente = models.DateField() 
+	qte = models.IntegerField( null=True ,blank=True)
+	prix_u = models.FloatField()
+	produit = models.ForeignKey(Produit , on_delete=models.CASCADE, null=True ,blank=True)
+	fraisdivers = models.ForeignKey(FraisDivers , on_delete=models.CASCADE, null=True ,blank=True)
 	

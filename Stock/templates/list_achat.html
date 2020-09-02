@@ -1,12 +1,12 @@
 {% extends "base/base.html" %}
 
 {% block title %}
-   Tous les Sorites
+    Tous les achats
 {% endblock title %}
     
     {% block page_title %}
 
-         Tous les Sorites
+         Tous les achats
     {% endblock page_title %}
 
 {% block body %}
@@ -19,15 +19,15 @@
             
         {% endif %}
     {% endfor %}
-
- <a href="{% url 'sortie' %}" class="col-md-12 btn btn-success" style="margin-bottom: 20px; margin-top: 20px"><strong>Ajouter Sortie</strong></a>
+ <a href="{% url 'achat' %}" class="col-md-12 btn btn-success" style="margin-bottom: 20px; margin-top: 20px"><strong>Ajouter Achat</strong></a>
+   
  
     <div id="main-wrapper">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-white">
                     <div class="panel-heading clearfix">
-                        <h4 class="panel-title">Tous les Sorties</h4>
+                        <h4 class="panel-title">Tous les achats</h4>
                     </div>
                     <div class="panel-body">
                        <div class="table-responsive">
@@ -35,7 +35,7 @@
                             <thead>
                                 <tr>
                                     <th>PRODUIT</th>
-                                    <th>DATE SORTIE</th>
+                                    <th>DATE ACHAT</th>
                                     <th>QUANTITE</th>
                                     <th>PRIX UNITAIRE</th>
                                 </tr>
@@ -50,12 +50,12 @@
                                 </tr>
                             </tfoot> -->
                             <tbody>
-                            {% for sortie in page_obj %}
+                            {% for achat in page_obj %}
                                 <tr>
-                                    <td><a href="#">{{sortie.produit}}</a></td>
-                                    <td><a href="#">{{sortie.date_sortie}}</a></td>
-                                    <td><a href="#">{{sortie.qte}}</a></td>
-                                    <td><a href="#">{{sortie.prix_u}}</a></td>
+                                    <td><a href="#">{{achat.produit}}</a></td>
+                                    <td><a href="#">{{achat.date_achat}}</a></td>
+                                    <td><a href="#">{{achat.qte}}</a></td>
+                                    <td><a href="#">{{achat.prix_u}}</a></td>
                                 </tr>
                             {% endfor %}
                                 
@@ -67,7 +67,6 @@
             </div>
         </div>
     </div>
-    
-
+  
 
 {% endblock body %}

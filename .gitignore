@@ -1,4 +1,5 @@
 *.sqlite3
 *SD/settings.py
+*passenger_wsgi.py
 *__pycache__
 *media

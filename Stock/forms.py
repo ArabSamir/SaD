@@ -14,15 +14,21 @@ class ProduitForm(forms.ModelForm):
 		model = Produit
 		fields = '__all__'
 
-class EntreeForm(forms.ModelForm):
-	date_entree = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS ,widget=forms.DateInput(format='%d/%m/%Y',attrs={'class': 'form-control ','placeholder':'JJ/MM/AAAA'} ), required = True)
+class AchatForm(forms.ModelForm):
+	date_achat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS ,widget=forms.DateInput(format='%d/%m/%Y',attrs={'class': 'form-control ','placeholder':'JJ/MM/AAAA'} ), required = True)
 	qte = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Quantite'}), required = True)
-	prix_u = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Prix Unitaire'}), required = True)
+	prix_u = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Prix Unitaire'}), required = True)
 	produit = forms.ModelChoiceField(widget=forms.Select(attrs={  'class':'form-control'}),queryset = Produit.objects.all())
 	
 	class Meta:
-		model = Entree
-		fields = '__all__'
+		model = Achat
+		fields = (
+			'date_achat',
+			'qte',
+			'prix_u',
+			'produit',
+			
+			)
 	
 
 	def clean_qte(self , *args,**kwargs):
@@ -32,23 +38,62 @@ class EntreeForm(forms.ModelForm):
 			raise forms.ValidationError('Verifier votre quantite')
 		else:
 			return qte
+
+class VenteForm(forms.ModelForm):
+	date_vente = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS ,widget=forms.DateInput(format='%d/%m/%Y',attrs={'class': 'form-control ','placeholder':'JJ/MM/AAAA'} ), required = True)
+	qte = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Quantite'}), required = True)
+	prix_u = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Prix Unitaire'}), required = True)
+	produit = forms.ModelChoiceField(widget=forms.Select(attrs={  'class':'form-control'}),queryset = Produit.objects.all())
+	
+
+	class Meta:
+		model = Vente
+		fields = (
+			'date_vente',
+			'qte',
+			'prix_u',
+			'produit',
+			
+			)
+	def clean_qte(self , *args,**kwargs):
+		qte = self.cleaned_data.get('qte')
+
+		if qte < 1 :
+			raise forms.ValidationError('Verifier votre quantite')
+		else:
+			return qte
+
+
+
+
+
 
 class SortieForm(forms.ModelForm):
-	date_sortie = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS ,widget=forms.DateInput(format='%d/%m/%Y',attrs={'class': 'form-control ','placeholder':'JJ/MM/AAAA'} ), required = True)
-	qte = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Quantite'}), required = True)
-	prix_u = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Prix Unitaire'}), required = True)
-	produit = forms.ModelChoiceField(widget=forms.Select(attrs={  'class':'form-control'}),queryset = Produit.objects.all())
+	date_achat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS ,widget=forms.DateInput(format='%d/%m/%Y',attrs={'class': 'form-control ','placeholder':'JJ/MM/AAAA'} ), required = True)
+	prix_u = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Prix'}), required = True)
+	fraisdivers = forms.ModelChoiceField(widget=forms.Select(attrs={  'class':'form-control'}),queryset = FraisDivers.objects.all())
+	
+	class Meta:
+		model = Achat
+		fields = (
+			'date_achat',
+			'prix_u',
+			'fraisdivers',
+			
+			)
+	
+
+class EntreeForm(forms.ModelForm):
+	date_vente = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS ,widget=forms.DateInput(format='%d/%m/%Y',attrs={'class': 'form-control ','placeholder':'JJ/MM/AAAA'} ), required = True)
+	prix_u = forms.FloatField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder':'Prix'}), required = True)
+	fraisdivers = forms.ModelChoiceField(widget=forms.Select(attrs={  'class':'form-control'}),queryset = FraisDivers.objects.all())
 	
 
 	class Meta:
-		model = Sortie
-		fields = '__all__'
-
-
-	def clean_qte(self , *args,**kwargs):
-		qte = self.cleaned_data.get('qte')
-
-		if qte < 1 :
-			raise forms.ValidationError('Verifier votre quantite')
-		else:
-			return qte
+		model = Vente
+		fields = (
+			'date_vente',
+			'prix_u',
+			'fraisdivers',
+			
+			)
