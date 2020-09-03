@@ -110,10 +110,10 @@ def entree(request):
 				form.save()
 				
 				messages.success(request , 'entree Ajoute avec succe')
-				return redirect('list_vente')
+				return redirect('entree_sortie')
 		except Exception as e:
 			messages.error(request , f'entree n\'a pas été ajoute {e}')
-			return redirect('list_vente')
+			return redirect('entree_sortie')
 
 	args = {
 		'form':form,
@@ -192,10 +192,10 @@ def sortie(request):
 				form.save()
 				
 				messages.success(request , 'sortie Ajoute avec succe')
-				return redirect('list_vente')
+				return redirect('entree_sortie')
 		except Exception as e:
 			messages.error(request , f'sortie n\'a pas été ajoute {e}')
-			return redirect('list_vente')
+			return redirect('entree_sortie')
 
 	args = {
 		'form':form,
